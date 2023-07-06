@@ -23,7 +23,7 @@ export default function CharacterCard(props) {
     // Get a random cat image
     // the "has_breeds=1" is important for the second part
     const response = await fetch(
-      "https://api.thecatapi.com/v1/images/search?has_breeds=1",
+      "https://ghibliapi.vercel.app/films",
       requestOptions
     );
     const data = await response.json();
@@ -31,7 +31,8 @@ export default function CharacterCard(props) {
     const catData = data[0];
 
     // Save URL of cat image
-    setCatImg(catData.url);
+    setCatImg(catData.image);
+    setDescription(catData.description);
 
     // Use the cat's ID to make a new request for cat info
     const catId = catData.id;
@@ -57,11 +58,12 @@ export default function CharacterCard(props) {
       />
       <CardContent sx={{ pt: 0 }}>
         <ul>
-          {description.map((sentence) => (
+          {/* {description.map((sentence) => (
             <Typography component="li" key={sentence}>
               {sentence}
             </Typography>
-          ))}
+          ))} */}
+          {description}
         </ul>
       </CardContent>
       <CardActions>

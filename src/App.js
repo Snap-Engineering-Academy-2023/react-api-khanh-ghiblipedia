@@ -8,6 +8,7 @@ import Container from "@mui/material/Container";
 import CharacterCard from "./CharacterCard";
 import characters from "./protagonists.json";
 import { useState } from "react";
+import GhibliPage from "./GhibliPage";
 
 function App() {
   // state variable to store the click count!
@@ -75,6 +76,7 @@ function App() {
           ))}
         </Grid>
       </Container>
+      <GhibliPage></GhibliPage>
     </div>
   );
 }
